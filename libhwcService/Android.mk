@@ -26,8 +26,11 @@ LOCAL_STATIC_LIBRARIES := libarect
 
 LOCAL_CFLAGS += -DLOG_TAG=\"HWCService\"
 LOCAL_CFLAGS += -DHWC_SERVICES
+LOCAL_CFLAGS += -Wno-reorder
+LOCAL_CFLAGS += -Wno-unused-parameter
 
 LOCAL_C_INCLUDES := \
+	$(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include \
 	$(LOCAL_PATH)/../include \
 	$(TOP)/hardware/samsung_slsi-cm/exynos/include \
 	$(TOP)/hardware/samsung_slsi-cm/exynos/libhwcutils \
@@ -36,8 +39,6 @@ LOCAL_C_INCLUDES := \
 	$(TOP)/hardware/samsung_slsi-cm/$(TARGET_SOC)/include \
 	$(TOP)/hardware/samsung_slsi-cm/$(TARGET_SOC)/libhwcmodule \
 	$(TOP)/system/core/libsync/include
-
-LOCAL_HEADER_LIBRARIES := generated_kernel_headers
 
 ifeq ($(BOARD_HDMI_INCAPABLE), true)
 LOCAL_C_INCLUDES += $(TOP)/hardware/samsung_slsi-cm/exynos/libhdmi_dummy

@@ -37,16 +37,19 @@ ifeq ($(BOARD_USES_DT), true)
 endif
 
 LOCAL_C_INCLUDES := \
+	$(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include \
 	$(LOCAL_PATH)/../include \
 	$(TOP)/hardware/samsung_slsi-cm/exynos/include \
 	$(TOP)/hardware/samsung_slsi-cm/exynos/libexynosutils \
 	$(TOP)/hardware/samsung_slsi-cm/exynos/libmpp
 
-LOCAL_HEADER_LIBRARIES := generated_kernel_headers
-
 LOCAL_SRC_FILES := \
 	libgscaler_obj.cpp \
 	libgscaler.cpp
+
+LOCAL_CFLAGS += -Wno-unused-parameter
+LOCAL_CFLAGS += -Wno-unused-variable
+LOCAL_CFLAGS += -Wno-format
 
 LOCAL_MODULE_TAGS := eng
 LOCAL_MODULE := libexynosgscaler
