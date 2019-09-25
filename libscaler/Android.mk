@@ -30,7 +30,7 @@ LOCAL_SRC_FILES := libscaler.cpp
 LOCAL_CFLAGS += -Wno-unused-parameter
 LOCAL_CFLAGS += -Wno-unused-variable
 
-LOCAL_MODULE_TAGS := eng
+LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE := libexynosscaler
 include $(BUILD_SHARED_LIBRARY)
 
